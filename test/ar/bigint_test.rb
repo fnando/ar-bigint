@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "test_helper"
 
 class BigIntTest < Minitest::Test
@@ -9,13 +11,14 @@ class BigIntTest < Minitest::Test
       create_table(:things) do |t|
         t.integer :age
         t.integer :quantity, limit: 4
+        t.column :how_many, :integer
         t.bigint :big_number
       end
     end
 
     columns = model.columns.select {|col| col.type == :integer }
 
-    assert columns.all? {|col| col.sql_type == "bigint" }
-    assert columns.all? {|col| col.limit == 8 }
+    assert(columns.all? {|col| col.sql_type == "bigint" })
+    assert(columns.all? {|col| col.limit == 8 })
   end
 end
