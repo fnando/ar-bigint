@@ -3,7 +3,7 @@
 require "active_record"
 require "active_record/connection_adapters/postgresql_adapter"
 
-ActiveRecord::ConnectionAdapters::PostgreSQLAdapter::NATIVE_DATABASE_TYPES[:integer][:limit] = 8
+ActiveRecord::ConnectionAdapters::PostgreSQLAdapter::NATIVE_DATABASE_TYPES[:integer][:limit] = 8 # rubocop:disable Layout/LineLength
 
 ActiveRecord::Type.class_eval do
   extension = Module.new do

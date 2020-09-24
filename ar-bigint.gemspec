@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "./lib/ar/bigint/version"
 
 Gem::Specification.new do |spec|
@@ -6,10 +8,12 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Nando Vieira"]
   spec.email         = ["fnando.vieira@gmail.com"]
 
-  spec.summary       = "Make ActiveRecord's PostgreSQL adapter always use bigint columns"
+  spec.summary       = "Make ActiveRecord's PostgreSQL adapter always use " \
+                       "bigint columns"
   spec.description   = spec.summary
   spec.homepage      = "https://rubygems.org/gems/ar-bigint"
   spec.license       = "MIT"
+  spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
 
   spec.files         = `git ls-files -z`
                        .split("\x0")
@@ -25,5 +29,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "pg"
   spec.add_development_dependency "pry-meta"
   spec.add_development_dependency "rake"
+  spec.add_development_dependency "rubocop"
+  spec.add_development_dependency "rubocop-fnando"
   spec.add_development_dependency "simplecov"
 end
